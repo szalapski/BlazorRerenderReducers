@@ -45,6 +45,8 @@ Components inherited from `Microsoft.AspNetCore.Components.ComponentBase` skip r
 
 This package provides a convenient way to avoid a complicated, onerous, or repetitive implementation of ShouldRender in the cases where rerendering needs to be optimized.
 
+No .NET Standard, .NET Core, or .NET Framework package is provided, as it is expected that anyone working on Blazor should be on .NET 5 or later.
+
 ## Demo
 
 https://szblazorrerenderreducers.azurewebsites.net/
