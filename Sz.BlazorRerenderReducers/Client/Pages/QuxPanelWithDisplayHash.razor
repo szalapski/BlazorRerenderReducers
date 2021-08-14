@@ -1,0 +1,38 @@
+﻿@using BlazorRerenderReducers
+@inherits DisplayHashRerenderComponentBase
+
+<div style="display:flex;">
+    @foreach (int i in Enumerable.Range(0, 1000))
+    {
+        <div style="display: none;">@i</div>
+    }
+</div>
+
+nested QuxPanelWithDisplayHash component with Baz=@InputFoo.Qux
+
+<div style="display:flex;">
+@foreach (int i in Enumerable.Range(0, 1000))
+{
+    <div style="display: block;">@i</div>
+}
+</div>
+
+@code {
+    [Parameter]
+    public Foo InputFoo { get; set; } = null!;
+
+    protected override string GetDisplayHash() => InputFoo.Qux.ToString();
+
+    private ScopeTimer RenderTimer { get; } = new("QuxPanelWithDisplayHash");
+
+    protected override void OnInitialized() => OnParametersSet();
+    protected override void OnParametersSet()
+    {
+        RenderTimer.Init();
+    }
+    protected override void OnAfterRender(bool firstRender)
+    {
+        RenderTimer.Dispose();
+    }
+
+}

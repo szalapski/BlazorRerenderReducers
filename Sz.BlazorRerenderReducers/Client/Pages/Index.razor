@@ -1,0 +1,29 @@
+﻿@page "/"
+@using Sz.BlazorRerenderReducers
+
+<h3>Demo of re-render hash base component</h3>
+@if (UseRerenderControl)
+{
+    <BarPanelWithDisplayHash InputFoo="Foo1" />
+}
+else
+{
+    <BarPanel InputFoo="Foo1" />
+}
+
+<div class="mb-4">
+    <label>
+        <input type="checkbox" @bind="UseRerenderControl" />
+        Use rerender control
+    </label>
+</div>
+
+<button @onclick="@(()=>{})">Do nothing</button>
+<button @onclick="@(()=> Foo1.Bar += " *")">Add a star to Bar</button>
+<button @onclick="@(()=> Foo1.Qux += " *")">Add a star to Qux</button>
+
+
+@code {
+    private Foo Foo1 { get; set; } = new Foo();
+    private bool UseRerenderControl { get; set; } = false;
+}

@@ -1,0 +1,4 @@
+﻿<StaticWebAssets Version="1.0">
+  <ContentRoot BasePath="/" Path="c:\s\Sz.RerenderControls\Sz.RerenderControls\Client\bin\Debug\net5.0\wwwroot\" />
+  <ContentRoot BasePath="/" Path="c:\s\Sz.RerenderControls\Sz.RerenderControls\Client\obj\Debug\net5.0\scopedcss\bundle\" />
+</StaticWebAssets>

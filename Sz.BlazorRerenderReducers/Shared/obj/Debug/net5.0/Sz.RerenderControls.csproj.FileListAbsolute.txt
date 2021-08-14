@@ -1,0 +1,12 @@
+c:\s\Sz.RerenderControls\Sz.RerenderControls\Shared\bin\Debug\net5.0\Sz.RerenderControls.deps.json
+c:\s\Sz.RerenderControls\Sz.RerenderControls\Shared\bin\Debug\net5.0\Sz.RerenderControls.dll
+c:\s\Sz.RerenderControls\Sz.RerenderControls\Shared\bin\Debug\net5.0\ref\Sz.RerenderControls.dll
+c:\s\Sz.RerenderControls\Sz.RerenderControls\Shared\bin\Debug\net5.0\Sz.RerenderControls.pdb
+c:\s\Sz.RerenderControls\Sz.RerenderControls\Shared\obj\Debug\net5.0\Sz.RerenderControls.GeneratedMSBuildEditorConfig.editorconfig
+c:\s\Sz.RerenderControls\Sz.RerenderControls\Shared\obj\Debug\net5.0\Sz.RerenderControls.AssemblyInfoInputs.cache
+c:\s\Sz.RerenderControls\Sz.RerenderControls\Shared\obj\Debug\net5.0\Sz.RerenderControls.AssemblyInfo.cs
+c:\s\Sz.RerenderControls\Sz.RerenderControls\Shared\obj\Debug\net5.0\Sz.RerenderControls.csproj.CoreCompileInputs.cache
+c:\s\Sz.RerenderControls\Sz.RerenderControls\Shared\obj\Debug\net5.0\Sz.RerenderControls.dll
+c:\s\Sz.RerenderControls\Sz.RerenderControls\Shared\obj\Debug\net5.0\ref\Sz.RerenderControls.dll
+c:\s\Sz.RerenderControls\Sz.RerenderControls\Shared\obj\Debug\net5.0\Sz.RerenderControls.pdb
+c:\s\Sz.RerenderControls\Sz.RerenderControls\Shared\obj\Debug\net5.0\Sz.RerenderControls.csproj.AssemblyReference.cache

@@ -1,0 +1,152 @@
+{
+  "format": 1,
+  "restore": {
+    "c:\\s\\Sz.RerenderControls\\Sz.RerenderControls\\Client\\Sz.RerenderControls.Client.csproj": {}
+  },
+  "projects": {
+    "c:\\s\\Sz.RerenderControls\\Sz.RerenderControls\\Client\\Sz.RerenderControls.Client.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "c:\\s\\Sz.RerenderControls\\Sz.RerenderControls\\Client\\Sz.RerenderControls.Client.csproj",
+        "projectName": "Sz.RerenderControls.Client",
+        "projectPath": "c:\\s\\Sz.RerenderControls\\Sz.RerenderControls\\Client\\Sz.RerenderControls.Client.csproj",
+        "packagesPath": "C:\\Users\\Patrick\\.nuget\\packages\\",
+        "outputPath": "c:\\s\\Sz.RerenderControls\\Sz.RerenderControls\\Client\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\Patrick\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net5.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net5.0": {
+            "targetAlias": "net5.0",
+            "projectReferences": {
+              "c:\\s\\Sz.RerenderControls\\Sz.RerenderControls\\Shared\\Sz.RerenderControls.csproj": {
+                "projectPath": "c:\\s\\Sz.RerenderControls\\Sz.RerenderControls\\Shared\\Sz.RerenderControls.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net5.0": {
+          "targetAlias": "net5.0",
+          "dependencies": {
+            "Microsoft.AspNetCore.Components.WebAssembly": {
+              "target": "Package",
+              "version": "[5.0.8, )"
+            },
+            "Microsoft.AspNetCore.Components.WebAssembly.DevServer": {
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[5.0.8, )"
+            },
+            "System.Net.Http.Json": {
+              "target": "Package",
+              "version": "[5.0.0, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "downloadDependencies": [
+            {
+              "name": "Microsoft.NETCore.App.Runtime.browser-wasm",
+              "version": "[5.0.4, 5.0.4]"
+            }
+          ],
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.100-preview.3.21202.5\\RuntimeIdentifierGraph.json"
+        }
+      },
+      "runtimes": {
+        "browser-wasm": {
+          "#import": []
+        }
+      }
+    },
+    "c:\\s\\Sz.RerenderControls\\Sz.RerenderControls\\Shared\\Sz.RerenderControls.csproj": {
+      "version": "0.1.0",
+      "restore": {
+        "projectUniqueName": "c:\\s\\Sz.RerenderControls\\Sz.RerenderControls\\Shared\\Sz.RerenderControls.csproj",
+        "projectName": "Sz.BlazorRerendering",
+        "projectPath": "c:\\s\\Sz.RerenderControls\\Sz.RerenderControls\\Shared\\Sz.RerenderControls.csproj",
+        "packagesPath": "C:\\Users\\Patrick\\.nuget\\packages\\",
+        "outputPath": "c:\\s\\Sz.RerenderControls\\Sz.RerenderControls\\Shared\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\Patrick\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net5.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net5.0": {
+            "targetAlias": "net5.0",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net5.0": {
+          "targetAlias": "net5.0",
+          "dependencies": {
+            "Microsoft.AspNetCore.Components": {
+              "target": "Package",
+              "version": "[5.0.8, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.100-preview.3.21202.5\\RuntimeIdentifierGraph.json"
+        }
+      }
+    }
+  }
+}

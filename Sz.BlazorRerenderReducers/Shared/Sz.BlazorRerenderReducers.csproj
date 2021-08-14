@@ -1,0 +1,30 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net5.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <Version>0.1.0</Version>
+    <Authors>Patrick Szalapski</Authors>
+    <PackageId>Sz.BlazorRerenderReducers</PackageId>
+    <Company />
+    <Product />
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <Description>Provides classes useful for reducing the frequency of component re-renders of Blazor components to a minimum.</Description>
+    <Copyright>2021 Patrick Szalapski</Copyright>
+    <PackageReleaseNotes>0.1.0 Initial release with only hash-based rerendering control</PackageReleaseNotes>
+    <PackageProjectUrl>https://szblazorrerenderreducers.azurewebsites.net/</PackageProjectUrl>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.Components" Version="5.0.8" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <SupportedPlatform Include="browser" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="README.md" Pack="true" PackagePath="\"/>
+  </ItemGroup>
+</Project>
