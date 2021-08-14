@@ -10,6 +10,8 @@
     <description>Provides classes useful for reducing the frequency of component re-renders of Blazor components to a minimum.</description>
     <releaseNotes>0.1.0 Initial release with only hash-based rerendering control</releaseNotes>
     <copyright>2021 Patrick Szalapski</copyright>
+    <tags>Blazor</tags>
+    <repository type="Git" url="https://github.com/szalapski/BlazorRerenderReducers" />
     <dependencies>
       <group targetFramework="net5.0">
         <dependency id="Microsoft.AspNetCore.Components" version="5.0.8" exclude="Build,Analyzers" />

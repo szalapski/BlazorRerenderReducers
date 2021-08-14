@@ -21,3 +21,4 @@ C:\s\Sz.BlazorRerenderReducers\Sz.BlazorRerenderReducers\Shared\obj\Debug\net5.0
 C:\s\Sz.BlazorRerenderReducers\Sz.BlazorRerenderReducers\Shared\obj\Debug\net5.0\Sz.BlazorRerenderReducers.dll
 C:\s\Sz.BlazorRerenderReducers\Sz.BlazorRerenderReducers\Shared\obj\Debug\net5.0\ref\Sz.BlazorRerenderReducers.dll
 C:\s\Sz.BlazorRerenderReducers\Sz.BlazorRerenderReducers\Shared\obj\Debug\net5.0\Sz.BlazorRerenderReducers.pdb
+C:\s\Sz.BlazorRerenderReducers\Sz.BlazorRerenderReducers\Shared\obj\Debug\net5.0\Sz.BlazorRerenderReducers.csproj.AssemblyReference.cache
