@@ -55,6 +55,7 @@ https://szblazorrerenderreducers.azurewebsites.net/
 ## How to optimize rerendering without using this package
 
 * Make your parameters entirely known immutable primitive types.  If you do this, your component will automatically avoid rerendering unless the value of any parameter changes.
+* Many simple components will render very fast without any need for optimization.  Measure render speed first; this information will help you avoid naively optimizing any component.
 * If your component does not ever need to change after its first render, you can simply override ShouldRender to return false: `protected override bool ShouldRender() => false;`
 * If your component can determine the need to rerender based on some other logic, you can simply override ShouldRender to return true or false based on such logic. 
 
