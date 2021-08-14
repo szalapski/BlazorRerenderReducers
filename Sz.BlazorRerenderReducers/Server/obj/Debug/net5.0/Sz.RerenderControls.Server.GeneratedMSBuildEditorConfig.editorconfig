@@ -1,8 +1,0 @@
-is_global = true
-build_property.TargetFramework = net5.0
-build_property.TargetPlatformMinVersion = 
-build_property.UsingMicrosoftNETSdkWeb = true
-build_property.ProjectTypeGuids = 
-build_property._SupportedPlatformList = Linux,macOS,Windows
-build_property.RootNamespace = Sz.RerenderControls.Server
-build_property.ProjectDir = c:\s\Sz.RerenderControls\Sz.RerenderControls\Server\

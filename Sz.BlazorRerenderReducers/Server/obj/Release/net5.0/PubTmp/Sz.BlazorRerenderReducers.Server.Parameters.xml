@@ -1,6 +1,0 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<parameters>
-  <parameter name="IIS Web Application Name" description="" value="SzBlazorRerenderReducers" tags="IisApp">
-    <parameterEntry kind="ProviderPath" scope="IisApp" match="^C:\\s\\Sz\.BlazorRerenderReducers\\Sz\.BlazorRerenderReducers\\Server\\obj\\Release\\net5\.0\\PubTmp\\Out\\$" />
-  </parameter>
-</parameters>

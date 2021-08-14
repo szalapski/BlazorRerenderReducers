@@ -1,4 +1,0 @@
-﻿<StaticWebAssets Version="1.0">
-  <ContentRoot BasePath="/" Path="C:\s\Sz.BlazorRerenderReducers\Sz.BlazorRerenderReducers\Client\bin\Release\net5.0\wwwroot\" />
-  <ContentRoot BasePath="/" Path="C:\s\Sz.BlazorRerenderReducers\Sz.BlazorRerenderReducers\Client\obj\Release\net5.0\scopedcss\bundle\" />
-</StaticWebAssets>
