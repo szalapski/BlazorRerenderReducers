@@ -19,7 +19,7 @@ Suppose that you have a component that is being rerendered undesirably often.  F
         protected override string GetDisplayHash() => InputFoo.Bar.ToString();
     }
     ```
-Now your component should be rerendered .  To see such rerendering logged, you might choose to override AfterRender on your component. 
+Now your component should be rerendered only when the value of GetDisplayHash changes.  To see such rerendering logged, you might choose to override AfterRender on your component. 
 
 Note that child components will not rerender if the current component doesn't rerender, as the current component will not set any parameters on its children unless it rerenders.
 
@@ -43,7 +43,7 @@ Components inherited from `Microsoft.AspNetCore.Components.ComponentBase` skip r
 * All of the parameter values are of known immutable primitive types, such as int, string, DateTime, and haven't changed since the previous set of parameters were set, or
 * The component's ShouldRender method returns false.
 
-This package enables some convenient ways to avoid a complicated, onerous, or repetitive implementation of ShouldRender in the cases where rerendering needs to be optimized.
+This package provides a convenient way to avoid a complicated, onerous, or repetitive implementation of ShouldRender in the cases where rerendering needs to be optimized.
 
 ## Demo
 
