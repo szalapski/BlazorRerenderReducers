@@ -1,27 +1,42 @@
 ﻿@page "/"
-@using Sz.BlazorRerenderReducers
 
 <h3>Demo of re-render hash base component</h3>
+
+<div class="border p-2">
+    @if (UseRerenderControl)
+    {
+        <MainPanelWithDisplayHash InputFoo="Foo1" />
+    }
+    else
+    {
+        <MainPanel InputFoo="Foo1" />
+    }
+</div>
+
 @if (UseRerenderControl)
 {
-    <BarPanelWithDisplayHash InputFoo="Foo1" />
+    <div class="alert alert-success">Using DisplayHashRerender</div>
 }
 else
 {
-    <BarPanel InputFoo="Foo1" />
+    <div class="alert alert-danger">Not using DisplayHashRerender</div>
 }
 
 <div class="mb-4">
     <label>
+
         <input type="checkbox" @bind="UseRerenderControl" />
-        Use rerender control
+        Use DisplayHashRerender
     </label>
 </div>
 
-<button @onclick="@(()=>{})">Do nothing</button>
-<button @onclick="@(()=> Foo1.Bar += " *")">Add a star to Bar</button>
-<button @onclick="@(()=> Foo1.Qux += " *")">Add a star to Qux</button>
+<button class="btn btn-sm btn-outline-primary" @onclick="@(()=>{})">Do nothing</button>
+<button class="btn btn-sm btn-outline-primary" @onclick="@(()=> Foo1.Bar += " *")">Add a star inside MainPanel</button>
+<button class="btn btn-sm btn-outline-primary" @onclick="@(()=> Foo1.Qux += " *")">Add a star inside NestedPanel</button>
 
+<div>
+    To see whether or not components are re-rendering, open you browser console (usually F12).
+</div>
 
 @code {
     private Foo Foo1 { get; set; } = new Foo();
