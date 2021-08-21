@@ -16,22 +16,36 @@ namespace Sz.BlazorRerenderReducers
     /// <remarks>Also includes optional render profiling code (so you can see how often a re-render happens)</remarks>
     public abstract class DisplayHashRerenderComponentBase : ComponentBase
     {
-
         /// <summary>
         /// Returns a string that, accross successive calls, would indicate when to re-render: no change would indicate
-        /// a re-render is not needed, and a change would indicate a render is needed.
-        /// When it returns null, should also trigger a re-render regardless of whether it is a change.
+        /// a re-render is not needed, and a change would indicate a re-render is needed.
+        /// When it returns null, then GetDisplayItems will be checked to see re-render is needed
         /// </summary>
-        /// <remarks>Override this method to return a unique value for each unique display state of the component--i.e. 
+        /// <remarks>Override this method to return a unique value for each unique display state of the component--i.e.
         /// a string that is different when any displayable state changes,
         /// and the same value when no visible change happens.
         ///
-        /// Note that child components will not rerender if the current component doesn't rerender, as the current component will not
+        /// Note that child components will not re-render if the current component doesn't re-render, as the current component will not
         /// set any parameters on its children unless it rerenders.</remarks>
-        protected abstract string? GetDisplayHash();
+        protected virtual string? GetDisplayHash() => null;
 
         /// <summary>
-        /// Returns a flag to indicate whether the component should render based on the current and previous values
+        /// Returns an array of strings that, accross successive calls, would indicate when to re-render: no change would indicate
+        /// a re-render is not needed, and a change would indicate a re-render is needed.
+        /// Only when GetDisplayHash returns null is this checked (GetDisplayHash has precedence)
+        /// When it returns a null array, should also trigger a re-render regardless of whether it is a change.
+        /// </summary>
+        /// <remarks>Override this method to return a unique array for each unique display state of the component--i.e.
+        /// a string that is different when any displayable state changes,
+        /// and the same value when no visible change happens.
+        ///
+        /// Note that child components will not rerender if the current component doesn't re-render, as the current component will not
+        /// set any parameters on its children unless it re-renders.</remarks>
+        protected virtual string[]? GetDisplayItems() => null;
+
+
+        /// <summary>
+        /// Returns a flag to indicate whether the component should re-render based on the current and previous values
         /// returned by GetDisplayHash.
         /// </summary>
         /// <remarks>Should not need to call explicitly nor override, but you can if needed.</remarks>
@@ -39,6 +53,14 @@ namespace Sz.BlazorRerenderReducers
         {
             if (!EnableRerenderReductionGlobal) return true;
             string? displayHash = GetDisplayHash();
+
+            if (displayHash == null)
+            {
+                string[]? items = GetDisplayItems();
+                if (displayHash == null) return true;
+                displayHash = string.Join(",", items!);
+            }
+
             bool result = PreviousDisplayHash == null || PreviousDisplayHash != displayHash;
             PreviousDisplayHash = displayHash;
             return result;
