@@ -37,17 +37,25 @@ namespace Sz.BlazorRerenderReducers
         /// <remarks>Should not need to call explicitly nor override, but you can if needed.</remarks>
         protected override bool ShouldRender()
         {
+            if (!EnableRerenderReductionGlobal) return true;
             string? displayHash = GetDisplayHash();
             bool result = PreviousDisplayHash == null || PreviousDisplayHash != displayHash;
             PreviousDisplayHash = displayHash;
             return result;
         }
+
+        /// <summary>
+        /// True to enable rerender reduction globally (the default).  False to disable rerender reduction
+        /// and therefore always render whenever Blazor deems possibly necessary (ordinary behavior without this library).
+        /// </summary>
+        public static bool EnableRerenderReductionGlobal { get; set; } = true;
+
         private string? PreviousDisplayHash { get; set; } = null;
 
 
         #region rudimentary render profiling code
 
-        private bool _outputRenderProfiling = false;
+        private bool _outputRenderProfiling = true;
 
         /// <summary>
         /// Whether to output rudimentary render profiling info to console.
@@ -64,10 +72,15 @@ namespace Sz.BlazorRerenderReducers
 
         private ScopeTimer? RenderTimer { get; set; } = null;
 
+        protected override void OnInitialized()
+        {
+            // Blazor doesn't call ShouldRender on first render, but we want it to do so, just to initialize PreviousDisplayHash.
+            ShouldRender();
+        }
+
         protected override void OnParametersSet()
         {
             if (!OutputRenderProfiling) return;
-            Console.WriteLine($"{GetType().Name}");
             RenderTimer = new ScopeTimer($"Render time of {GetType().Name}");
         }
 

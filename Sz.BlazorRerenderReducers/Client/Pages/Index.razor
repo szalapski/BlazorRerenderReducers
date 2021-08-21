@@ -1,16 +1,10 @@
 ﻿@page "/"
 
-<h3>Demo of re-render hash base component</h3>
+<h3>Demo of re-render hash base component - </h3>
+<h6>see NuGet and GitHub pages for <code>Sz.BlazorRerenderReducers</code></h6>
 
-<div class="border p-2">
-    @if (UseRerenderControl)
-    {
-        <MainPanelWithDisplayHash InputFoo="Foo1" />
-    }
-    else
-    {
-        <MainPanel InputFoo="Foo1" />
-    }
+<div class="border p-2 mt-4">
+    <MainPanel InputFoo="Foo1" />
 </div>
 
 @if (UseRerenderControl)
@@ -25,7 +19,7 @@ else
 <div class="mb-4">
     <label>
 
-        <input type="checkbox" @bind="UseRerenderControl" />
+        <input type="checkbox" @bind="DisplayHashRerenderComponentBase.EnableRerenderReductionGlobal" />
         Use DisplayHashRerender
     </label>
 </div>
@@ -34,11 +28,14 @@ else
 <button class="btn btn-sm btn-outline-primary" @onclick="@(()=> Foo1.Bar += " *")">Add a star inside MainPanel</button>
 <button class="btn btn-sm btn-outline-primary" @onclick="@(()=> Foo1.Qux += " *")">Add a star inside NestedPanel</button>
 
-<div>
+<div class="sidebar">
     To see whether or not components are re-rendering, open you browser console (usually F12).
 </div>
 
 @code {
     private Foo Foo1 { get; set; } = new Foo();
-    private bool UseRerenderControl { get; set; } = false;
+    private bool UseRerenderControl {
+        get => DisplayHashRerenderComponentBase.EnableRerenderReductionGlobal;
+        set => DisplayHashRerenderComponentBase.EnableRerenderReductionGlobal = value;
+    }
 }

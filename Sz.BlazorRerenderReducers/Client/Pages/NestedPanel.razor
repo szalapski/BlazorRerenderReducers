@@ -1,4 +1,5 @@
 ﻿@using BlazorRerenderReducers
+@inherits DisplayHashRerenderComponentBase
 
 <div style="display:flex;">
     @foreach (int i in Enumerable.Range(0, 1000))
@@ -20,16 +21,5 @@ NestedPanel Qux=@InputFoo.Qux
     [Parameter]
     public Foo InputFoo { get; set; } = null!;
 
-    private ScopeTimer RenderTimer { get; } = new("QuxPanelWithDisplayHash");
-
-    protected override void OnInitialized() => OnParametersSet();
-    protected override void OnParametersSet()
-    {
-        RenderTimer.Init();
-    }
-    protected override void OnAfterRender(bool firstRender)
-    {
-        RenderTimer.Dispose();
-    }
-
+    protected override string GetDisplayHash() => InputFoo.Qux.ToString();
 }
