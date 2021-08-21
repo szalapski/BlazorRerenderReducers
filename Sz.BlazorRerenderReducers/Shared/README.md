@@ -19,6 +19,8 @@ Suppose that you have a component that is being rerendered undesirably often.  F
         protected override string GetDisplayHash() => InputFoo.Bar.ToString();
     }
     ```
+   Alternatively, override GetDisplayItems with several strings that represent, collectively, *all* the displayed state of the component.
+
 Now your component should be rerendered only when the value of GetDisplayHash changes.  To see such rerendering logged, you might choose to override AfterRender on your component. 
 
 Note that child components will not rerender if the current component doesn't rerender, as the current component will not set any parameters on its children unless it rerenders.

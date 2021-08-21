@@ -4,7 +4,7 @@
     <TargetFramework>net5.0</TargetFramework>
     <Nullable>enable</Nullable>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-    <Version>0.1.0</Version>
+    <Version>0.2.0</Version>
     <Authors>Patrick Szalapski</Authors>
     <PackageId>Sz.BlazorRerenderReducers</PackageId>
     <Company />
@@ -12,7 +12,10 @@
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
     <Description>Provides classes useful for reducing the frequency of component re-renders of Blazor components to a minimum.</Description>
     <Copyright>2021 Patrick Szalapski</Copyright>
-    <PackageReleaseNotes>0.1.0 Initial release with only hash-based rerendering control</PackageReleaseNotes>
+    <PackageReleaseNotes>
+		0.1.0 Initial release with only hash-based rerendering control
+		0.2.0 Added optional control by array of strings, in addition to string--use either one
+	</PackageReleaseNotes>
     <PackageProjectUrl>https://szblazorrerenderreducers.azurewebsites.net/</PackageProjectUrl>
     <RepositoryUrl>https://github.com/szalapski/BlazorRerenderReducers</RepositoryUrl>
     <RepositoryType>Git</RepositoryType>
