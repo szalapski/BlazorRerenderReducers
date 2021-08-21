@@ -1,6 +1,6 @@
 # Sz.BlazorRerenderReducers
 
-Provides classes useful for reducing the frequency of component re-renders of Blazor components to a minimum.
+Provides classes useful for reducing the frequency of re-renders of Blazor components to a minimum.
 
 ## Usage
 
@@ -16,10 +16,16 @@ Suppose that you have a component that is being rerendered undesirably often.  F
 
     ```c#
     @code {
-        protected override string GetDisplayHash() => InputFoo.Bar.ToString();
+        protected override string? GetDisplayHash() => InputFoo.Bar.ToString();
     }
     ```
-   Alternatively, override GetDisplayItems with several strings that represent, collectively, *all* the displayed state of the component.
+   
+    Alternatively, override GetDisplayItems with several strings that represent, collectively, *all* the displayed state of the component.
+    ```c#
+    @code {
+        protected override string[]? GetDisplayItems() => new [] { InputFoo.Bar, InputFoo.Qux }
+    }
+    ```
 
 Now your component should be rerendered only when the value of GetDisplayHash changes.  To see such rerendering logged, you might choose to override AfterRender on your component. 
 
