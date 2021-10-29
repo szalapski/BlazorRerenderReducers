@@ -54,16 +54,14 @@ namespace Sz.BlazorRerenderReducers
             if (!EnableRerenderReductionGlobal) return true;
 
             string? displayHash = GetDisplayHash();
-            Console.WriteLine($"{GetType()} GetDisplayHash='{displayHash ?? "null"}'");
 
             if (displayHash == null)
             {
                 string[]? items = GetDisplayItems();
                 if (items == null) return true;
                 displayHash = string.Join(",", items!);
-                Console.WriteLine($"{GetType()} GetDisplayItems='{displayHash ?? "null"}'");
             }
-
+            Console.WriteLine($"{GetType()} GetDisplayHash='{displayHash ?? "null"}'");
 
             bool result = PreviousDisplayHash == null || PreviousDisplayHash != displayHash;
             PreviousDisplayHash = displayHash;
