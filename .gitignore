@@ -11,3 +11,4 @@
 *.vspscc
 *.vssscc
 [Tt]humbs.db
+/release

@@ -21,7 +21,7 @@ jobs:
         
     # publishes Blazor project to the release-folder
     - name: Publish .NET Core Project
-      run: dotnet publish Sz.BlazorRerenderReducers\Server\Sz.BlazorRerenderReducers.Server.csproj -c Release -o release --nologo
+      run: dotnet publish Sz.BlazorRerenderReducers/Server/ -c Release -o release --nologo
     - name: Commit wwwroot to GitHub Pages
       uses: JamesIves/github-pages-deploy-action@3.7.1
       with:
