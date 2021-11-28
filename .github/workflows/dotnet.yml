@@ -21,7 +21,7 @@ jobs:
       run: dotnet publish Sz.BlazorRerenderReducers/Server/ -c Release -o release --nologo
 
     - name: Change base-tag in index.html from / to BlazorGitHubPagesDemo
-      run: sed -i 's/<base href="\/" \/>/<base href="\/BlazorGitHubPagesDemo\/" \/>/g' release/wwwroot/index.html
+      run: sed -i 's/<base href="\/" \/>/<base href="\/BlazorRerenderReducers\/" \/>/g' release/wwwroot/index.html
     
     - name: Commit wwwroot to GitHub Pages
       uses: JamesIves/github-pages-deploy-action@3.7.1
