@@ -6,7 +6,7 @@ Provides classes useful for reducing the frequency of component re-renders of Bl
 
 Suppose that you have a component that is being rerendered undesirably often.  First, you should take the ordinary steps to enable Blazor to efficiently avoid rerendering (listed below in "How to optimize..." for your reference).  But, if you are unable or unwilling to make such changes, do the following on the desired components:
 
-1. Install the NuGet Package by finding it in NuGet Package Explorer or by using the Nuget Console and running `Install-Package Sz.BlazorRerenderReducers -Version 0.1.0`
+1. Install the NuGet Package by finding it in NuGet Package Explorer or by using the Nuget Console and running `Install-Package Sz.BlazorRerenderReducers -Version 0.x.y`
 
 2. Inherit from `DisplayHashRerenderComponentBase` on the component that you wish to reduce rerender frequency:
 
@@ -21,7 +21,7 @@ Suppose that you have a component that is being rerendered undesirably often.  F
         protected override string GetDisplayHash() => InputFoo.Bar.ToString();
     }
     ```
-Now your component should be rerendered .  To see such rerendering logged, you might choose to override AfterRender on your component. 
+Now your component should be rerendered only when something in the displayable state changes..  To see such rerendering logged, you might choose to override AfterRender on your component. 
 
 Note that child components will not rerender if the current component doesn't rerender, as the current component will not set any parameters on its children unless it rerenders.
 
