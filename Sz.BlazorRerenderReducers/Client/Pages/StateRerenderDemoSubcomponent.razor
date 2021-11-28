@@ -1,10 +1,23 @@
-﻿@inherits BlazorState.BlazorStateComponent
+﻿@using System.Text
+@inherits BlazorState.BlazorStateComponent
 
-@*<div>@State.Signature</div>*@
-<span>@State.HolidayMessage</span>
+<pre>@State.Signature</pre>
+<div>
+    Subcomponent rerenders:
+    <pre>
+       @RerenderLog
+    </pre>
+</div>
 
 @code{
-    private MyMonolithicState State => Store.GetState<MyMonolithicState>();
+    private MyMonolithicState State => base.GetState<MyMonolithicState>();
 
+    private StringBuilder RerenderLog { get; } = new();
+    protected override bool ShouldRender()
+    {
+        bool result = base.ShouldRender();
+        if (result) RerenderLog.AppendLine(DateTime.Now.ToString());
+        return result;
+    }
 
 }

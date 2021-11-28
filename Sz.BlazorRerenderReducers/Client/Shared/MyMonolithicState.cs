@@ -38,6 +38,7 @@ namespace Sz.BlazorRerenderReducers.Client.Shared
 
             public override Task<Unit> Handle(ChangeSignatureAction anAction, CancellationToken aCancellationToken)
             {
+
                 State.Signature += " Y";
                 return Unit.Task;
             }
