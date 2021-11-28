@@ -57,8 +57,7 @@ No .NET Standard, .NET Core, or .NET Framework package is provided, as it is exp
 
 ## Demo
 
-https://szblazorrerenderreducers.azurewebsites.net/
-
+See it in action at https://szalapski.github.io/BlazorRerenderReducers.
 
 ## How to optimize rerendering without using this package
 

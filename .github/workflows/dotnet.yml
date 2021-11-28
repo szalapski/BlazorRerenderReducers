@@ -27,7 +27,9 @@ jobs:
     - name: Add .nojekyll file
       run: touch release/wwwroot/.nojekyll
     
-    # copy index.html to 404.html to overcome lack of server-side routing on Github Pages (TODO: pre-render site instead)
+    # copy index.html to 404.html to overcome lack of server-side routing on Github Pages. TODO: 
+    #   alternative 1: https://docs.microsoft.com/en-us/aspnet/core/blazor/host-and-deploy/webassembly?view=aspnetcore-6.0#github-pages
+    #   alternative 2: https://swimburger.net/blog/dotnet/pre-render-blazor-webassembly-at-build-time-to-optimize-for-search-engines
     - name: copy index.html to 404.html
       run: cp release/wwwroot/index.html release/wwwroot/404.html
     
