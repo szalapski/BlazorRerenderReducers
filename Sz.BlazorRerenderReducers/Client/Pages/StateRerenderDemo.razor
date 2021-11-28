@@ -1,0 +1,21 @@
+﻿@inherits BlazorState.BlazorStateComponent
+@page "/blazor-state-demo"
+
+<h2>Blazor-state demo</h2>
+
+
+<div>Main component: @State.HolidayMessage</div>
+<div>Subcomponent: <StateRerenderDemoSubcomponent /></div>
+<button @onclick="ChangeMessage">Change message</button>
+<button @onclick="ChangeSignature">Change signature</button>
+
+@code{
+    private MyMonolithicState State => Store.GetState<MyMonolithicState>();
+
+    private async Task ChangeMessage() =>
+        await Mediator.Send(new MyMonolithicState.ChangeMessageAction());
+
+    private async Task ChangeSignature() =>
+        await Mediator.Send(new MyMonolithicState.ChangeSignatureAction());
+
+}

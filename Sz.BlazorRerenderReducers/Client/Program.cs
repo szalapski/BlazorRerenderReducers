@@ -1,7 +1,9 @@
+using BlazorState;
 using Microsoft.AspNetCore.Components.WebAssembly.Hosting;
 using Microsoft.Extensions.DependencyInjection;
 using System;
 using System.Net.Http;
+using System.Reflection;
 using System.Threading.Tasks;
 
 namespace Sz.BlazorRerenderReducers.Client
@@ -14,6 +16,10 @@ namespace Sz.BlazorRerenderReducers.Client
             builder.RootComponents.Add<App>("#app");
 
             builder.Services.AddScoped(sp => new HttpClient { BaseAddress = new Uri(builder.HostEnvironment.BaseAddress) });
+            builder.Services.AddBlazorState(
+                o => o.Assemblies = new Assembly[] { typeof(Program).GetTypeInfo().Assembly }
+            );
+
 
             await builder.Build().RunAsync();
         }

@@ -1,0 +1,10 @@
+﻿@inherits BlazorState.BlazorStateComponent
+
+@*<div>@State.Signature</div>*@
+<span>@State.HolidayMessage</span>
+
+@code{
+    private MyMonolithicState State => Store.GetState<MyMonolithicState>();
+
+
+}
