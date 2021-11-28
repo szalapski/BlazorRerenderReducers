@@ -20,8 +20,12 @@ jobs:
     - name: Publish .NET Project
       run: dotnet publish Sz.BlazorRerenderReducers/Server/ -c Release -o release --nologo
 
-    - name: Change base-tag in index.html from / to BlazorGitHubPagesDemo
+    - name: Change base-tag in index.html from / to the root subfolder
       run: sed -i 's/<base href="\/" \/>/<base href="\/BlazorRerenderReducers\/" \/>/g' release/wwwroot/index.html
+
+    # add .nojekyll file to tell GitHub pages to allow files and folders starting with an underscore)
+    - name: Add .nojekyll file
+      run: touch release/wwwroot/.nojekyll
     
     - name: Commit wwwroot to GitHub Pages
       uses: JamesIves/github-pages-deploy-action@3.7.1
