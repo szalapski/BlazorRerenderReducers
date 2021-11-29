@@ -1,0 +1,69 @@
+﻿@page "/blazor-state-demo"
+@using System.Text
+
+@inherits BlazorState.BlazorStateComponent
+
+<style>
+    .column-left{ float: left; width: 33.333%; }
+    .column-right{ float: right; width: 33.333%; }
+    .column-center{ display: inline-block; width: 33.333%; }
+</style>
+
+<h2>Blazor-state demo</h2>
+<div>
+    <button @onclick="ChangeMessage">Change message in state</button>
+    <button @onclick="AddItem">Add item to list in state</button>
+</div>
+
+<div class="border m-2">
+    <div class="column-left">
+        Main component (Ordinary property): <pre>@State.HolidayMessage</pre>
+        <div>
+            Main component rerenders:
+            <pre>@RerenderLog</pre>
+        </div>
+    </div>
+
+    <div class="column-center">Subcomponent 1 (Ordinary property): <StateRerenderDemoSubcomponent1 /></div>
+
+    <div class="column-right">Subcomponent 2 (List): <StateRerenderDemoSubcomponent2 /></div>
+</div>
+<div class="clearfix">
+    <p>
+        <a href="https://github.com/TimeWarpEngineering/blazor-state/issues/266">Regarding Blazor-State issue 266</a>:
+    </p>
+    <p>
+        The issue: A change to the message (a simple property) shouldn't cause a rerender of subcomponent 1 or 2,
+        since nothing in depends on it has changed.
+    </p>
+    <p>
+        Also, an item added to the list of string Items (an IEnumerable) shouldn't cause a rerender of the subcomponent 1
+        or of the main component, since nothing they depend on has changed.
+    </p>
+    <p>
+        Furthermore, this should be done without complicated "registration" code in each component.
+        Ideally, BlazorStateComponent should: '
+        (1) Know which parts of the state have changed;
+        (2) Know which parts of the state are referenced by the component either in markup or in code;
+        (3) Call StateHasChanged only if there is any property that is in both 1 and 2.
+    </p>
+    <p>It seems like #2 is the tough part. (Manually setting up the criteria for avoiding a rerender is already possible by overriding ShouldRender.)</p>
+
+</div>
+
+    @code {
+    private MyMonolithicState State => base.GetState<MyMonolithicState>();
+
+    private async Task ChangeMessage() => await Mediator.Send(new MyMonolithicState.ChangeMessageAction());
+    private async Task ChangeSignature() => await Mediator.Send(new MyMonolithicState.ChangeSignatureAction());
+    private async Task AddItem() => await Mediator.Send(new MyMonolithicState.AddItemAction());
+
+    private StringBuilder RerenderLog { get; } = new();
+    protected override bool ShouldRender()
+    {
+        bool result = base.ShouldRender();
+        if (result) RerenderLog.AppendLine(DateTime.Now.ToString());
+        return result;
+    }
+
+    }

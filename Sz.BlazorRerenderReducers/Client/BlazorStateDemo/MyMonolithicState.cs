@@ -1,5 +1,7 @@
 ﻿using BlazorState;
 using MediatR;
+using System.Collections.Generic;
+using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 
@@ -7,15 +9,14 @@ namespace Sz.BlazorRerenderReducers.Client.Shared
 {
     public class MyMonolithicState : State<MyMonolithicState>
     {
-        public string? HolidayMessage { get; private set; } = "Merry Christmas";
-        public string? Signature { get; private set; } = "From Szalapski Software";
-
-        public override void Initialize()
-        {
-        }
+        public string HolidayMessage { get; private set; } = "Hello world";
+        public string Signature { get; private set; } = "Have a good day";
+        public List<string> Items { get; } = new[] { "item1", "item2" }.ToList();
+        public override void Initialize() { }
 
         public class ChangeMessageAction : IAction {}
-        public class ChangeSignatureAction : IAction {}
+        public class ChangeSignatureAction : IAction { }
+        public class AddItemAction : IAction { }
 
         public class ChangeMessageActionHandler : ActionHandler<ChangeMessageAction>
         {
@@ -40,6 +41,19 @@ namespace Sz.BlazorRerenderReducers.Client.Shared
             {
 
                 State.Signature += " Y";
+                return Unit.Task;
+            }
+        }
+
+        public class AddItemActionHandler : ActionHandler<AddItemAction>
+        {
+            public AddItemActionHandler(IStore aStore) : base(aStore) { }
+
+            MyMonolithicState State => Store.GetState<MyMonolithicState>();
+
+            public override Task<Unit> Handle(AddItemAction anAction, CancellationToken aCancellationToken)
+            {
+                State.Items.Add("item");
                 return Unit.Task;
             }
         }

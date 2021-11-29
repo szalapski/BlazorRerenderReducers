@@ -1,0 +1,28 @@
+﻿@using System.Text
+@inherits BlazorState.BlazorStateComponent
+
+<div>
+    <pre>
+        @(string.Join(", ", State.Items))
+    </pre>
+
+    <div>
+        Subcomponent 2 rerenders:
+        <pre>
+           @RerenderLog
+        </pre>
+    </div>
+</div>
+
+@code{
+    private MyMonolithicState State => base.GetState<MyMonolithicState>();
+
+    private StringBuilder RerenderLog { get; } = new();
+    protected override bool ShouldRender()
+    {
+        bool result = base.ShouldRender();
+        if (result) RerenderLog.AppendLine(DateTime.Now.ToString());
+        return result;
+    }
+
+}
