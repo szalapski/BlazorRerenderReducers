@@ -21,7 +21,7 @@
     protected override bool ShouldRender()
     {
         bool result = base.ShouldRender();
-        if (result) RerenderLog.AppendLine(DateTime.Now.ToString());
+        if (result) RerenderLog.AppendLine(DateTime.Now.TimeOfDay.ToString(@"hh\:mm\:ss\.f"));
         return result;
     }
 

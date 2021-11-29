@@ -3,7 +3,7 @@
 
 <pre>@State.Signature</pre>
 <div>
-    Subcomponent 1 rerenders:
+    Subcomponent 1 rerendered at:
     <pre>
        @RerenderLog
     </pre>
@@ -16,7 +16,7 @@
     protected override bool ShouldRender()
     {
         bool result = base.ShouldRender();
-        if (result) RerenderLog.AppendLine(DateTime.Now.TimeOfDay.ToString("hh:mm:ss.f"));
+        if (result) RerenderLog.AppendLine(DateTime.Now.TimeOfDay.ToString(@"hh\:mm\:ss\.f"));
         return result;
     }
 
