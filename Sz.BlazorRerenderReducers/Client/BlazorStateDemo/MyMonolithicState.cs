@@ -9,7 +9,7 @@ namespace Sz.BlazorRerenderReducers.Client.Shared
 {
     public class MyMonolithicState : State<MyMonolithicState>
     {
-        public string HolidayMessage { get; private set; } = "Hello world";
+        public string MainMessage { get; private set; } = "Hello world";
         public string Signature { get; private set; } = "Have a good day";
         public List<string> Items { get; } = new[] { "item1", "item2" }.ToList();
         public override void Initialize() { }
@@ -26,7 +26,7 @@ namespace Sz.BlazorRerenderReducers.Client.Shared
 
             public override Task<Unit> Handle(ChangeMessageAction anAction, CancellationToken aCancellationToken)
             {
-                State.HolidayMessage += " X";
+                State.MainMessage += " X";
                 return Unit.Task;
             }
         }
