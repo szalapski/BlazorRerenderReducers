@@ -57,7 +57,7 @@
 </div>
 
 @code {
-    private MyMonolithicState State => base.GetState<MyMonolithicState>();
+    private MyMonolithicState State => base.GetStateWithPropertySubscriptions<MyMonolithicState>((MyMonolithicState s) => s.MainMessage);
 
     private async Task ChangeMessage() => await Mediator.Send(new MyMonolithicState.ChangeMessageAction());
     private async Task ChangeSignature() => await Mediator.Send(new MyMonolithicState.ChangeSignatureAction());

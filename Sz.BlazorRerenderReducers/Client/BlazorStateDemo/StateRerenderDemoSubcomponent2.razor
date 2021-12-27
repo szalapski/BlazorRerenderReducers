@@ -15,7 +15,7 @@
 </div>
 
 @code{
-    private MyMonolithicState State => base.GetState<MyMonolithicState>();
+    private MyMonolithicState State => base.GetStateWithPropertySubscriptions<MyMonolithicState>((MyMonolithicState s) => s.Items);
 
     private StringBuilder RerenderLog { get; } = new();
     protected override bool ShouldRender()
@@ -24,5 +24,7 @@
         if (result) RerenderLog.AppendLine(DateTime.Now.TimeOfDay.ToString(@"hh\:mm\:ss\.f"));
         return result;
     }
+
+
 
 }

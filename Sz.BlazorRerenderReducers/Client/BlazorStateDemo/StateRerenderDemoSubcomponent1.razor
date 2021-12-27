@@ -10,7 +10,7 @@
 </div>
 
 @code{
-    private MyMonolithicState State => base.GetState<MyMonolithicState>();
+    private MyMonolithicState State => base.GetStateWithPropertySubscriptions<MyMonolithicState>((MyMonolithicState s) => s.Signature);
 
     private StringBuilder RerenderLog { get; } = new();
     protected override bool ShouldRender()
