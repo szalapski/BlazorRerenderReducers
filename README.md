@@ -60,5 +60,5 @@ See also:
 
 ## Demo
 
-https://szblazorrerenderreducers.azurewebsites.net/
+https://szalapski.github.io/BlazorRerenderReducers/
 
