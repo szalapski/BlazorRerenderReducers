@@ -47,6 +47,10 @@ Components inherited from `Microsoft.AspNetCore.Components.ComponentBase` skip r
 
 This package enables some convenient ways to avoid a complicated, onerous, or repetitive implementation of ShouldRender in the cases where rerendering needs to be optimized.
 
+## Demo
+
+https://szalapski.github.io/BlazorRerenderReducers/
+
 ## How to optimize rerendering without using this package
 
 * Make your parameters entirely known immutable primitive types.  If you do this, your component will automatically avoid rerendering unless the value of any parameter changes.
@@ -58,7 +62,4 @@ See also:
 * https://docs.microsoft.com/en-us/aspnet/core/blazor/components/rendering
 * https://github.com/dotnet/AspNetCore.Docs/blob/main/aspnetcore/blazor/components/rendering.md
 
-## Demo
-
-https://szalapski.github.io/BlazorRerenderReducers/
 
