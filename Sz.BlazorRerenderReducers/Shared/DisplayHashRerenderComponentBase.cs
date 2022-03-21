@@ -61,7 +61,7 @@ namespace Sz.BlazorRerenderReducers
                 if (items == null) return true;
                 displayHash = string.Join(",", items!);
             }
-            Console.WriteLine($"{GetType()} GetDisplayHash='{displayHash ?? "null"}'");
+            //Console.WriteLine($"{GetType()} GetDisplayHash='{displayHash ?? "null"}'"); // may want this just to look under the hood a bit
 
             bool result = PreviousDisplayHash == null || PreviousDisplayHash != displayHash;
             PreviousDisplayHash = displayHash;
@@ -105,7 +105,7 @@ namespace Sz.BlazorRerenderReducers
         protected override void OnParametersSet()
         {
             if (!OutputRenderProfiling) return;
-            RenderTimer = new ScopeTimer($"Render time of {GetType().Name}");
+            RenderTimer = new ScopeTimer($"Rendered {GetType().Name}");
         }
 
         protected override void OnAfterRender(bool firstRender)
