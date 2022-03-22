@@ -1,0 +1,20 @@
+﻿@using Sz.BlazorRerenderReducers
+@inherits DisplayHashRerenderComponentBase
+
+<li class="product-tile">
+    <ProductImage Product="@Product"/>
+    <div>
+        @if (!Product.IsInStock) {
+		    <OutOfStockBadge />
+	    }
+        <ProductCode Product="@Product"/>
+        <ProductPriceTag Product="@Product"/>
+    </div>
+</li>
+@code {
+  [Parameter]
+  //[EditorRequired]
+  public ProductViewModel Product {get; set;} = null!;
+  protected override string GetDisplayHash() =>
+    $"{Product.Code};{Product.Price};{Product.IsInStock}";
+}
