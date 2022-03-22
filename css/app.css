@@ -48,3 +48,13 @@ a, .btn-link {
         right: 0.75rem;
         top: 0.5rem;
     }
+
+
+.product-tile {
+    display: inline-block;
+    padding: 10px;
+}
+
+button {
+    padding: 10px 50px;
+}
