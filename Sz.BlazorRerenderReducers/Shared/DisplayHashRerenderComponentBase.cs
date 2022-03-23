@@ -61,7 +61,7 @@ namespace Sz.BlazorRerenderReducers
                 if (items == null) return true;
                 displayHash = string.Join(",", items!);
             }
-            Console.WriteLine($"{GetType()} GetDisplayHash='{displayHash ?? "null"}'"); // may want this just to look under the hood a bit
+            //Console.WriteLine($"{GetType()} GetDisplayHash='{displayHash ?? "null"}'"); // may want this just to look under the hood a bit
 
             bool result = PreviousDisplayHash == null || PreviousDisplayHash != displayHash;
             PreviousDisplayHash = displayHash;
