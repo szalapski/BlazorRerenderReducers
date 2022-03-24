@@ -1,7 +1,6 @@
 ﻿<button @onclick="Add">Add new to top</button>
 <ul>
-    <Virtualize Context="productViewModel"
-                Items="Products">
+    <Virtualize Context="productViewModel" Items="Products">
         <ProductTile Product="productViewModel" @key="productViewModel.Code" />
     </Virtualize>
 </ul>
