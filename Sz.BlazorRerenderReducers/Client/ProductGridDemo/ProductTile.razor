@@ -1,6 +1,5 @@
 ﻿@using Sz.BlazorRerenderReducers
 @inherits DisplayHashRerenderComponentBase
-
 <li class="product-tile">
     <ProductImage Product="@Product" />
     <div>
@@ -17,9 +16,11 @@
     //[EditorRequired]
     public ProductViewModel Product { get; set; } = null!;
 
+    // when this value is unchanged, suppresses unnecessary re-rendering
     protected override string GetDisplayHash() =>
         $"{Product.Code};{Product.Price};{Product.IsInStock}";
 
+    // write a console line on every render
     protected override void OnAfterRender(bool _) =>
         Console.WriteLine($"Rendered {GetType()}");
 }
