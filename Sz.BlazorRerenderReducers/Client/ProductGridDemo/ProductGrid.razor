@@ -1,18 +1,18 @@
-﻿<ul>
-    <Virtualize
-        Context="productViewModel"
-        Items="Products">
-        <ProductTile Product="productViewModel" @key="productViewModel.Code"/>
+﻿<button @onclick="Add">Add new to top</button>
+<ul>
+    <Virtualize Context="productViewModel"
+                Items="Products">
+        <ProductTile Product="productViewModel" @key="productViewModel.Code" />
     </Virtualize>
 </ul>
-<button @onclick="Add">Add New</button>
 
 @code {
-  [Parameter]
- // [EditorRequired]
-  public List<ProductViewModel> Products {get; set;} = null!;
-  private void Add() {
-     Products.Add(new());
-     StateHasChanged();
-  }
+    [Parameter]
+    // [EditorRequired]
+    public List<ProductViewModel> Products { get; set; } = null!;
+    private void Add()
+    {
+        Products.Insert(0, new());
+        StateHasChanged();
+    }
 }

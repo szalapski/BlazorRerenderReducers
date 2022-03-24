@@ -2,19 +2,24 @@
 @inherits DisplayHashRerenderComponentBase
 
 <li class="product-tile">
-    <ProductImage Product="@Product"/>
+    <ProductImage Product="@Product" />
     <div>
-        @if (!Product.IsInStock) {
-		    <OutOfStockBadge />
-	    }
-        <ProductCode Product="@Product"/>
-        <ProductPriceTag Product="@Product"/>
+        @if (!Product.IsInStock)
+        {
+            <OutOfStockBadge />
+        }
+        <ProductCode Product="@Product" />
+        <ProductPriceTag Product="@Product" />
     </div>
 </li>
 @code {
-  [Parameter]
-  //[EditorRequired]
-  public ProductViewModel Product {get; set;} = null!;
-  protected override string GetDisplayHash() =>
-    $"{Product.Code};{Product.Price};{Product.IsInStock}";
+    [Parameter]
+    //[EditorRequired]
+    public ProductViewModel Product { get; set; } = null!;
+
+    protected override string GetDisplayHash() =>
+        $"{Product.Code};{Product.Price};{Product.IsInStock}";
+
+    protected override void OnAfterRender(bool _) =>
+        Console.WriteLine($"Rendered {GetType()}");
 }
