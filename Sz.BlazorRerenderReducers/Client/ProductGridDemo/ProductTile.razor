@@ -16,9 +16,14 @@
     //[EditorRequired]
     public ProductViewModel Product { get; set; } = null!;
 
+    [Parameter]
+    public bool AvoidUnnecessaryRerenders { get; set; } = true;
+
     // when this value is unchanged, suppresses unnecessary re-rendering
-    protected override string GetDisplayHash() =>
-        $"{Product.Code};{Product.Price};{Product.IsInStock}";
+    protected override string? GetDisplayHash() =>
+        AvoidUnnecessaryRerenders
+            ? $"{Product.Code};{Product.Price};{Product.IsInStock}"
+            : base.GetDisplayHash();
 
     // write a console line on every render
     protected override void OnAfterRender(bool _) =>

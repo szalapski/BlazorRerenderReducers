@@ -1,7 +1,15 @@
-﻿<button @onclick="Add">Add new to top</button>
+﻿<div>
+    <label>
+    <input type="checkbox" @bind="AvoidUnnecessaryRerenders" />
+        Supress unnecessary renders
+    </label>
+</div>
+<div>
+    <button @onclick="Add">Add new to top</button>
+</div>
 <ul>
     <Virtualize Context="productViewModel" Items="Products">
-        <ProductTile Product="productViewModel" @key="productViewModel.Code" />
+        <ProductTile Product="productViewModel" @key="productViewModel.Code" AvoidUnnecessaryRerenders="@AvoidUnnecessaryRerenders" />
     </Virtualize>
 </ul>
 
@@ -14,4 +22,6 @@
         Products.Insert(0, new());
         StateHasChanged();
     }
+
+    private bool AvoidUnnecessaryRerenders { get; set; } = true;
 }

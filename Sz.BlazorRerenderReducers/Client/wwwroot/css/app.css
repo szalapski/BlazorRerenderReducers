@@ -60,3 +60,7 @@ a, .btn-link {
 button {
     padding: 10px 50px;
 }
+
+input[type=checkbox] {
+    transform: scale(1.5);
+}
