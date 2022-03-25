@@ -13,7 +13,7 @@
     <NestedPanel InputFoo="@InputFoo" />
 </span>
 @code {
-    [Parameter] public Foo InputFoo { get; set; } = null!;
+    [Parameter, EditorRequired] public Foo InputFoo { get; set; } = null!;
 
     protected override string[] GetDisplayItems()
     {

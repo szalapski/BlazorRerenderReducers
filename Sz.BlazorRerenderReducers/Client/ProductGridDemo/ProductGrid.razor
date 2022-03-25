@@ -14,9 +14,8 @@
 </ul>
 
 @code {
-    [Parameter]
-    // [EditorRequired]
+    [Parameter, EditorRequired]
     public List<ProductViewModel> Products { get; set; } = null!;
     private void Add() => Products.Insert(0, new());
     private bool AvoidUnnecessaryRerenders { get; set; } = true;
-}
+}f

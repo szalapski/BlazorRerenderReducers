@@ -1,7 +1,6 @@
 ﻿<span>@(Product.Price.ToString("C"))</span>
 
 @code {
-    [Parameter]
-    // [EditorRequired]
+    [Parameter, EditorRequired]
     public ProductViewModel Product { get; set; } = null!;
 }

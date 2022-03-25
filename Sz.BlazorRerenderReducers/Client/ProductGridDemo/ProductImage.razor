@@ -1,6 +1,5 @@
 ﻿<img src="https://placeimg.com/200/200/tech?@(Product.Code)" alt="@Product.Code"/>
 @code {
-    [Parameter]
-    // [EditorRequired]
+    [Parameter, EditorRequired]
     public ProductViewModel Product { get; set; } = null!;
 }

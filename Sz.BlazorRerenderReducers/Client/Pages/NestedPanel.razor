@@ -18,7 +18,7 @@ NestedPanel Qux=@InputFoo.Qux
 </div>
 
 @code {
-    [Parameter]
+    [Parameter, EditorRequired]
     public Foo InputFoo { get; set; } = null!;
 
     protected override string GetDisplayHash() => InputFoo.Qux.ToString();
