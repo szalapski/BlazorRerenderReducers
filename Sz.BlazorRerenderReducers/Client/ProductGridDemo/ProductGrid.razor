@@ -1,7 +1,7 @@
 ﻿<div>
     <label>
     <input type="checkbox" @bind="AvoidUnnecessaryRerenders" />
-        Supress unnecessary renders
+        Suppress unnecessary renders
     </label>
 </div>
 <div>
@@ -17,11 +17,6 @@
     [Parameter]
     // [EditorRequired]
     public List<ProductViewModel> Products { get; set; } = null!;
-    private void Add()
-    {
-        Products.Insert(0, new());
-        StateHasChanged();
-    }
-
+    private void Add() => Products.Insert(0, new());
     private bool AvoidUnnecessaryRerenders { get; set; } = true;
 }
