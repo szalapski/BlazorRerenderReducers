@@ -11,7 +11,7 @@ Suppose that you have a component that is being rerendered undesirably often.  F
 2. Inherit from `DisplayHashRerenderComponentBase` on the component that you wish to reduce rerender frequency:
 
     ```c#
-    @inherit DisplayHashRerenderComponentBase
+    @inherits DisplayHashRerenderComponentBase
     ```
 
 3. Override the abstract method `GetDisplayHash` to return a string that represents *all* the displayed state of the component. That is, it should return a different value when any displayable state changes, and the same value when no visible change happens.
