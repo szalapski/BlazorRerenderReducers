@@ -10,6 +10,22 @@
         <ProductCode Product="@Product" />
         <ProductPriceTag Product="@Product" />
     </div>
+    <div>
+        <table>
+            <tr>
+                @foreach (var item in Product.OtherProperties)
+                {
+                    <OtherPropertyHeader Item="item" />
+                }
+            </tr>
+            <tr>
+                @foreach (var item in Product.OtherProperties)
+                {
+                    <OtherPropertyCell Item="item" />
+                }
+            </tr>
+        </table>
+    </div>
 </li>
 @code {
     [Parameter, EditorRequired]

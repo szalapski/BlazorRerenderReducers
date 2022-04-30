@@ -1,5 +1,10 @@
-﻿<div class="float-right">@Product.Code</div>
+﻿<div class="product-code float-right">@Product.Code</div>
 @code {
     [Parameter, EditorRequired]
     public ProductViewModel Product { get; set; } = null!;
+
+    // write a console line on every render
+    protected override void OnAfterRender(bool _) =>
+        Console.WriteLine($"Rendered {GetType()}");
+
 }

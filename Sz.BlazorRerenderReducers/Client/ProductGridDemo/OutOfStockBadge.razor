@@ -1,4 +1,10 @@
-﻿<div class="float-left">
-Out of<br />
-stock
+﻿<div class="out-of-stock-badge float-left">
+    Out of<br />
+    stock
 </div>
+
+@code {
+    // write a console line on every render
+    protected override void OnAfterRender(bool _) =>
+        Console.WriteLine($"Rendered {GetType()}");
+}

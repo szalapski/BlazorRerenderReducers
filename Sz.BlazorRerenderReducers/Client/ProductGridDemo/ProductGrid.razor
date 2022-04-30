@@ -1,21 +1,40 @@
-﻿<div>
-    <label>
-    <input type="checkbox" @bind="AvoidUnnecessaryRerenders" />
-        Suppress unnecessary renders
-    </label>
+﻿<div class="product-grid">
+    <div>
+        <label>
+            <input type="checkbox" @bind="AvoidUnnecessaryRerenders" />
+            Suppress unnecessary renders
+        </label>
+    </div>
+    <div>
+        <button @onclick="Add">Add new to top</button>
+        <label>
+            Product code filter
+            <input @bind="FilterText" @bind:event="oninput" />
+        </label>
+    </div>
+    <ul>
+        <Virtualize Context="productViewModel" Items="FilteredProducts">
+            <ProductTile
+                @key="productViewModel.Code"
+                Product="productViewModel"
+                AvoidUnnecessaryRerenders="@AvoidUnnecessaryRerenders" />
+        </Virtualize>
+    </ul>
 </div>
-<div>
-    <button @onclick="Add">Add new to top</button>
-</div>
-<ul>
-    <Virtualize Context="productViewModel" Items="Products">
-        <ProductTile Product="productViewModel" @key="productViewModel.Code" AvoidUnnecessaryRerenders="@AvoidUnnecessaryRerenders" />
-    </Virtualize>
-</ul>
-
 @code {
     [Parameter, EditorRequired]
     public List<ProductViewModel> Products { get; set; } = null!;
-    private void Add() => Products.Insert(0, new());
+
+    public List<ProductViewModel> FilteredProducts =>
+        Products.Where(p => p.Code.Contains(FilterText)).ToList();
+
     private bool AvoidUnnecessaryRerenders { get; set; } = true;
-}f
+    private string FilterText { get; set; } = "";
+
+    private void Add() => Products.Insert(0, new());
+
+    // write a console line on every render
+    protected override void OnAfterRender(bool _) =>
+        Console.WriteLine($"Rendered {GetType()}");
+
+}

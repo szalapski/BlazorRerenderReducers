@@ -1,0 +1,16 @@
+﻿@using System.Threading
+<th class="other-property-header">@Item.Key</th>
+
+@code {
+    [Parameter, EditorRequired]
+    public KeyValuePair<string, string> Item { get; set; }
+
+    protected override void OnParametersSet()
+    {
+        Thread.Sleep(5);  // simulate a component that takes just a few ms to rerender
+    }
+
+    // write a console line on every render
+    protected override void OnAfterRender(bool _) =>
+    Console.WriteLine($"Rendered {GetType()}");
+}
