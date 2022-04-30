@@ -64,3 +64,8 @@ button {
 input[type=checkbox] {
     transform: scale(1.5);
 }
+
+table td, table th {
+    border: solid lightgrey 1px;
+    padding: 4px;
+}
