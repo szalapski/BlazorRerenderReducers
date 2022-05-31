@@ -1,7 +1,17 @@
-﻿<td class="other-property-cell">@Item.Value</td>
+﻿@using System.Threading
+<td class="other-property-cell">@Item.Value</td>
 
 @code {
     [Parameter, EditorRequired]
     public KeyValuePair<string, string> Item { get; set; }
+
+    protected override void OnParametersSet()
+    {
+        Thread.Sleep(2);  // simulate a component that takes just 2 ms to rerender
+    }
+
+    // write a console line on every render
+    protected override void OnAfterRender(bool _) =>
+        Console.WriteLine($"Rendered {GetType().Name}");
 
 }

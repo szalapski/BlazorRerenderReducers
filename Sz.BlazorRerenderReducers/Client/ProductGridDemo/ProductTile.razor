@@ -15,13 +15,13 @@
             <tr>
                 @foreach (var item in Product.OtherProperties)
                 {
-                    <OtherPropertyHeader Item="item" />
+                    <OtherPropertyHeader Item="item" @key="@(string.Join(Product.Code, item.Key))" />
                 }
             </tr>
             <tr>
                 @foreach (var item in Product.OtherProperties)
                 {
-                    <OtherPropertyCell Item="item" />
+                    <OtherPropertyCell Item="item" @key="@(string.Join(Product.Code, item.Key))" />
                 }
             </tr>
         </table>
@@ -42,5 +42,5 @@
 
     // write a console line on every render
     protected override void OnAfterRender(bool _) =>
-        Console.WriteLine($"Rendered {GetType()}");
+        Console.WriteLine($"Rendered {GetType().Name}");
 }
