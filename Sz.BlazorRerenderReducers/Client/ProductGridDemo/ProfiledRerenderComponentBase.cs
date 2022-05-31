@@ -6,8 +6,6 @@ namespace Sz.BlazorRerenderReducers.Client.ProductGridDemo;
 public abstract class ProfiledRerenderComponentBase
     : ComponentBase
 {
-    #region rudimentary render profiling code
-
     private bool _outputRenderProfiling = true;
 
     /// <summary>
@@ -37,6 +35,4 @@ public abstract class ProfiledRerenderComponentBase
         if (RenderTimer == null) Console.WriteLine($"Render done but no render timer in {GetType().Name}");
         else RenderTimer?.Lap();
     }
-
-    #endregion
 }
