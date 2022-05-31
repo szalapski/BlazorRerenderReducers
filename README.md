@@ -28,8 +28,8 @@ Note that child components will not rerender if the current component doesn't re
 ## What not to do
 
 * Do not use on components that are already fast to rerender and thus won't benefit much.
-* Do not use on components that take only known immutable primitive types as `[Parameter]`s (Blazor will optimize these).
-* Do not use on components that have a very complicated display state, as it will be too hard to maintain. Cconsider refactoring such components into several subcomponents.
+* Do not use on components that take only primitive types, strings, decimals, DateTimes, or Guids as `[Parameter]`s (Blazor will optimize these automatically).
+* Do not use on components that have a very complicated display state, as it will be too hard to maintain. Consider refactoring such components into several subcomponents.
 
 ## Background
 
