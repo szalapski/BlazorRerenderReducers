@@ -15,10 +15,5 @@
 @code {
     [Parameter, EditorRequired] public Foo InputFoo { get; set; } = null!;
 
-    protected override string[] GetDisplayItems()
-    {
-        return new[] { InputFoo.Bar };
-    }
-
-
+    protected override string GetDisplayHash() => InputFoo.Bar;
 }

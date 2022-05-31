@@ -6,40 +6,37 @@ namespace Sz.BlazorRerenderReducers.Client.ProductGridDemo;
 public abstract class ProfiledRerenderComponentBase
     : ComponentBase
 {
-    private Stopwatch watch = new();
-    private static int instanceIdSequence = 0;
-    private int? instanceId = null;
-    private static int? firstInstanceId = null;
+    #region rudimentary render profiling code
 
-    protected override void OnInitialized()
+    private bool _outputRenderProfiling = true;
+
+    /// <summary>
+    /// Whether to output rudimentary render profiling info to console.
+    /// </summary>
+    protected bool OutputRenderProfiling
     {
-        instanceId = ++instanceIdSequence;
-        if (firstInstanceId == null) firstInstanceId = instanceId;
-        //Initialize();
+        get => _outputRenderProfiling;
+        set
+        {
+            _outputRenderProfiling = value;
+            if (_outputRenderProfiling) RenderTimer = new();
+        }
     }
+
+    private ScopeTimer? RenderTimer { get; set; } = null;
+
     protected override void OnParametersSet()
     {
-        Initialize();
-    }
-
-    private void Initialize()
-    {
-        Console.WriteLine($"{GetType().Name} rendering started.");
-        watch.Start();
+        if (!OutputRenderProfiling) return;
+        RenderTimer = new ScopeTimer($"Rendered {GetType().Name}");
     }
 
     protected override void OnAfterRender(bool firstRender)
     {
-        watch.Stop();
-        //if (firstInstanceId == instanceId) {
-        //    Console.WriteLine($"{GetType().Name} rerendered after {watch.ElapsedMilliseconds} ms");
-        //    firstInstanceId = null;
-        //}
-        //else
-        //{
-            Console.WriteLine($"{GetType().Name} rendered after {watch.ElapsedMilliseconds} ms");
-        //}
-        watch.Reset();
-
+        if (!OutputRenderProfiling) return;
+        if (RenderTimer == null) Console.WriteLine($"Render done but no render timer in {GetType().Name}");
+        else RenderTimer?.Lap();
     }
+
+    #endregion
 }

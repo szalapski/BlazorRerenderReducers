@@ -1,5 +1,5 @@
 ﻿@using Sz.BlazorRerenderReducers
-@inherits ProfiledRerenderComponentBase
+@inherits DisplayHashRerenderComponentBase
 
 <li class="product-tile">
     <ProductImage Product="@Product" />
@@ -36,10 +36,9 @@
     public bool AvoidUnnecessaryRerenders { get; set; } = true;
 
     // when this value is unchanged, suppresses unnecessary re-rendering
-    //protected override string? GetDisplayHash() =>
-    //    AvoidUnnecessaryRerenders
-    //        ? $"{Product.Code};{Product.Price};{Product.IsInStock}"
-    //        : base.GetDisplayHash();
-
+    protected override string? GetDisplayHash() =>
+        AvoidUnnecessaryRerenders
+            ? $"{Product.Code};{Product.Price};{Product.IsInStock}"
+            : base.GetDisplayHash();
 
 }
