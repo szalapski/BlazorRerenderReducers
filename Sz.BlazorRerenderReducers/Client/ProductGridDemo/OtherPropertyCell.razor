@@ -9,9 +9,4 @@
     {
         Thread.Sleep(2);  // simulate a component that takes just 2 ms to rerender
     }
-
-    // write a console line on every render
-    protected override void OnAfterRender(bool _) =>
-        Console.WriteLine($"Rendered {GetType().Name}");
-
 }
