@@ -16,7 +16,9 @@
             <tr>
                 @foreach (var item in Product.OtherProperties)
                 {
-                    <OtherPropertyHeader Item="item" @key="@(string.Join(Product.Code, item.Key))" />
+                    <th
+                        class="other-property-header"
+                        @onclick="() => ShowDefinition(item.Key)">@item.Key</th>
                 }
             </tr>
             <tr>
@@ -34,6 +36,14 @@
 
     [Parameter]
     public bool AvoidUnnecessaryRerenders { get; set; } = true;
+
+    [CascadingParameter]
+    public IModalService Modal { get; set; }
+
+    private void ShowDefinition(string productAttributeKey)
+    {
+        Modal.Show<ProductDefinition>(productAttributeKey);
+    }
 
     // when this value is unchanged, suppresses unnecessary re-rendering
     //protected override string? GetDisplayHash() =>

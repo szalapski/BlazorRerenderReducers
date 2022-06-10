@@ -1,0 +1,20 @@
+﻿
+<div><em>@ProductAttributeKey</em>: @Definition</div>
+
+
+@code {
+    [Parameter, EditorRequired]
+    public string ProductAttributeKey { get; set; } = null!;
+
+    private string Definition =>
+        ProductAttributeKey switch
+        {
+            "MSRP" => "Manufacturer's suggested retail price",
+            "Color" => "The dominant or distinctive color of the product",
+            "Size" => "The size of the product: small, medium, large, or extra large.",
+            "Release" => "The date the product was first available",
+            "OS Ver" => "The version of the Operating System preloaded on the product",
+            "Resolution" => "The main resolution of the product's screen",
+            _ => ""
+        };
+}

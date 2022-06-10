@@ -5,6 +5,7 @@ using System;
 using System.Net.Http;
 using System.Reflection;
 using System.Threading.Tasks;
+using Blazored.Modal;
 
 namespace Sz.BlazorRerenderReducers.Client
 {
@@ -19,6 +20,7 @@ namespace Sz.BlazorRerenderReducers.Client
             builder.Services.AddBlazorState(
                 o => o.Assemblies = new Assembly[] { typeof(Program).GetTypeInfo().Assembly }
             );
+            builder.Services.AddBlazoredModal();
 
 
             await builder.Build().RunAsync();
