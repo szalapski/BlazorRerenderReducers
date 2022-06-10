@@ -69,3 +69,7 @@ table td, table th {
     border: solid lightgrey 1px;
     padding: 4px;
 }
+
+.other-property-header {
+    cursor: pointer;
+}

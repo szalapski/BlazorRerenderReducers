@@ -42,7 +42,9 @@
 
     private void ShowDefinition(string productAttributeKey)
     {
-        Modal.Show<ProductDefinition>(productAttributeKey);
+        ModalParameters parameters = new();
+        parameters.Add("ProductAttributeKey", productAttributeKey);
+        Modal.Show<ProductDefinition>("", parameters, new() { HideHeader = true });
     }
 
     // when this value is unchanged, suppresses unnecessary re-rendering
