@@ -1,0 +1,21 @@
+﻿@using Sz.BlazorRerenderReducers
+
+<th class="other-property-header" @onclick="ShowDefinition">@Key</th>
+
+@code {
+    [CascadingParameter, EditorRequired]
+    public IModalService Modal { get; set; } = null!;
+
+    [Parameter, EditorRequired]
+    public string Key {get; set;} = null!;
+
+    private void ShowDefinition()
+    {
+        ModalParameters parameters = new();
+        parameters.Add("ProductAttributeKey", Key);
+        Modal.Show<ProductDefinition>("", parameters, new() { HideHeader = true });
+    }
+
+
+
+}

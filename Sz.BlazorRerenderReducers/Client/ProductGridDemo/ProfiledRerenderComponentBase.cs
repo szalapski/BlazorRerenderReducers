@@ -1,6 +1,5 @@
 ﻿using Microsoft.AspNetCore.Components;
 using System;
-using System.Diagnostics;
 
 namespace Sz.BlazorRerenderReducers.Client.ProductGridDemo;
 public abstract class ProfiledRerenderComponentBase
