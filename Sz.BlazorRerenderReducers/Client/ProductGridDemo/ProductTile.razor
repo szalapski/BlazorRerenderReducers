@@ -1,6 +1,6 @@
 ﻿@using Sz.BlazorRerenderReducers
 
-<li class="product-tile">
+<li class="product-tile" data-code="@Product.Code">
     <ProductImage Product="@Product" />
     <div>
         @if (!Product.IsInStock)
@@ -28,6 +28,7 @@
         </table>
     </div>
 </li>
+
 @code {
     [Parameter, EditorRequired]
     public ProductViewModel Product { get; set; } = null!;
