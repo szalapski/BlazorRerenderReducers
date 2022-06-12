@@ -11,14 +11,15 @@
             Product code filter
             <input @bind="FilterText" @bind:event="oninput" />
         </label>
+        <div>tests</div>
     </div>
     <ul>
         @* @foreach (ProductViewModel productViewModel in FilteredProducts)
             {*@
-        <Virtualize Context="productViewModel" Items="FilteredProducts" ItemSize="224">
+        <Virtualize Context="productViewModel" Items="FilteredProducts" ItemSize="311">
 
             <ProductTile @key="productViewModel.Code"
-             
+
                          Product="productViewModel"
                          AvoidUnnecessaryRerenders="@AvoidUnnecessaryRerenders" />
         </Virtualize>

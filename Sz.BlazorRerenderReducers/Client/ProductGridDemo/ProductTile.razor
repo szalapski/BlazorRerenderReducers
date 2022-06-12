@@ -1,6 +1,6 @@
 ﻿@using Sz.BlazorRerenderReducers
 
-<li class="product-tile" data-code="@Product.Code">
+<li class="product-tile" data-code="@Product.Code" @key="Product.Code">
     <ProductImage Product="@Product" />
     <div>
         @if (!Product.IsInStock)
