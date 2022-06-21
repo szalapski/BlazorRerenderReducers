@@ -1,4 +1,5 @@
 ﻿@using Sz.BlazorRerenderReducers
+@inherits DisplayHashRerenderComponentBase
 
 <li class="product-tile">
     <ProductImage Product="@Product" />
@@ -15,8 +16,7 @@
             <tr>
                 @foreach (var item in Product.OtherProperties)
                 {
-                    <th class="other-property-header"
-                        @onclick="() => ShowDefinition(item.Key)">@item.Key</th>
+                    <OtherPropertyHeader Key="@item.Key" ></OtherPropertyHeader>
                 }
             </tr>
             <tr>
@@ -28,6 +28,7 @@
         </table>
     </div>
 </li>
+
 @code {
     [Parameter, EditorRequired]
     public ProductViewModel Product { get; set; } = null!;
@@ -35,14 +36,8 @@
     [Parameter]
     public bool AvoidUnnecessaryRerenders { get; set; } = true;
 
-    [CascadingParameter]
-    public IModalService Modal { get; set; } = null!;
-
-    private void ShowDefinition(string productAttributeKey)
-    {
-        ModalParameters parameters = new();
-        parameters.Add("ProductAttributeKey", productAttributeKey);
-        Modal.Show<ProductDefinition>("", parameters, new() { HideHeader = true });
-    }
-
+    protected override string? GetDisplayHash() =>
+        AvoidUnnecessaryRerenders
+            ? $"{Product.Code};{Product.Price};{Product.IsInStock}"
+            : base.GetDisplayHash();
 }

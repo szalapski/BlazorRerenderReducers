@@ -13,13 +13,12 @@
         </label>
     </div>
     <ul>
-        @foreach (ProductViewModel productViewModel in FilteredProducts)
-        {
+        <Virtualize Context="productViewModel" Items="FilteredProducts">
             <ProductTile
+                @key="productViewModel.Code"
                 Product="productViewModel"
                 AvoidUnnecessaryRerenders="@AvoidUnnecessaryRerenders" />
-        }
-
+        </Virtualize>
     </ul>
 </div>
 @code {
