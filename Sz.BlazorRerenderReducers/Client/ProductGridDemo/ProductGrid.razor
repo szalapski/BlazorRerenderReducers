@@ -26,7 +26,7 @@
     [Parameter, EditorRequired]
     public List<ProductViewModel> Products { get; set; } = null!;
 
-    public List<ProductViewModel> FilteredProducts =>
+    private List<ProductViewModel> FilteredProducts =>
         Products.Where(p => p.Code.Contains(FilterText)).ToList();
 
     private bool AvoidUnnecessaryRerenders { get; set; } = true;
