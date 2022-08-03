@@ -1,0 +1,20 @@
+﻿
+<th class="other-property-header"
+    @onclick="ShowDefinition">@Key</th>
+
+@code {
+    [Parameter, EditorRequired]
+    public string Key { get; set; } = null!;
+
+    [CascadingParameter]
+    public IModalService Modal { get; set; } = null!;
+
+    private void ShowDefinition()
+    {
+        ModalParameters parameters = new();
+        parameters.Add("ProductAttributeKey", Key);
+        Modal.Show<ProductDefinition>("", parameters, new() { HideHeader = true });
+    }
+
+
+}

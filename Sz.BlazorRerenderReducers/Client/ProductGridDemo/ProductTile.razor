@@ -1,5 +1,5 @@
 ﻿@using Sz.BlazorRerenderReducers
-
+@inherits DisplayHashRerenderComponentBase
 <li class="product-tile">
     <ProductImage Product="@Product" />
     <div>
@@ -15,9 +15,8 @@
             <tr>
                 @foreach (var item in Product.OtherProperties)
                 {
-                    <th class="other-property-header"
-                        @onclick="() => ShowDefinition(item.Key)">@item.Key</th>
-                }
+                    <OtherPropertyHeader Key="@item.Key" ></OtherPropertyHeader>
+               }
             </tr>
             <tr>
                 @foreach (var item in Product.OtherProperties)
@@ -44,5 +43,11 @@
         parameters.Add("ProductAttributeKey", productAttributeKey);
         Modal.Show<ProductDefinition>("", parameters, new() { HideHeader = true });
     }
+
+     // when this value is unchanged, suppresses unnecessary re-rendering
+    protected override string? GetDisplayHash() =>
+        AvoidUnnecessaryRerenders
+            ? $"{Product.Code};{Product.Price};{Product.IsInStock}"
+            : base.GetDisplayHash();
 
 }
