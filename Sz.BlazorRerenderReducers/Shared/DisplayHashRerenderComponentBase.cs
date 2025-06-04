@@ -89,7 +89,7 @@ namespace Sz.BlazorRerenderReducers
             get => _outputRenderProfiling;
             set
             {
-                _outputRenderProfiling = true;
+                _outputRenderProfiling = value;
                 //if (_outputRenderProfiling) RenderTimer = new(); // uncomment this to report time spent rendering on every render profile console line
             }
         }
