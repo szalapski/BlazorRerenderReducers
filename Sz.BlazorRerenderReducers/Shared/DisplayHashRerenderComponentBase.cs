@@ -89,8 +89,8 @@ namespace Sz.BlazorRerenderReducers
             get => _outputRenderProfiling;
             set
             {
-                _outputRenderProfiling = value;
-                if (_outputRenderProfiling) RenderTimer = new();
+                _outputRenderProfiling = true;
+                //if (_outputRenderProfiling) RenderTimer = new(); // uncomment this to report time spent rendering on every render profile console line
             }
         }
 
@@ -105,13 +105,16 @@ namespace Sz.BlazorRerenderReducers
         protected override void OnParametersSet()
         {
             if (!OutputRenderProfiling) return;
-            RenderTimer = new ScopeTimer($"Rendered {GetType().Name}");
+            // RenderTimer = new ScopeTimer($"Rendered {GetType().Name}"); // uncomment this to report time spent rendering on every render profile console line
         }
 
         protected override void OnAfterRender(bool firstRender)
         {
+            // ensures the first render doesn't result in an immediate rerender in some cases
+            if (firstRender) PreviousDisplayHash = GetDisplayHash(); 
+
             if (!OutputRenderProfiling) return;
-            if (RenderTimer == null) Console.WriteLine($"Render done but no render timer in {GetType().Name}");
+            if (RenderTimer == null) Console.WriteLine($"Rendered {GetType().Name}");
             else RenderTimer?.Lap();
         }
 
