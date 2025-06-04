@@ -38,8 +38,8 @@
       "System.Text.Encodings.Web.dll": "sha256-Z\/OhktWzKrr+\/Nke3yWccWnkzwoT4p8+NAbpvJWQF9Q=",
       "System.Text.Json.dll": "sha256-32wy1GlxPzdgggXiQ7HmHcB1JKP6Fz0G69mf8MNjODo=",
       "System.Threading.Thread.dll": "sha256-ag6zudZs3myYBECW3E1efHaEfle\/eNQilCX\/N5kJrJk=",
-      "Sz.BlazorRerenderReducers.Client.dll": "sha256-vWA+yn2V1TZa+TninighrjXud0wEn+zUZyuFrWcWaIU=",
-      "Sz.BlazorRerenderReducers.dll": "sha256-IGcArTVrKhWFzq+LZX0gDkuofUBgr0BkN6BDr4vZhMQ="
+      "Sz.BlazorRerenderReducers.Client.dll": "sha256-xJSWjxjhlerjg2RJ\/EiCc44l\/EMk0lfJBwsgQuiKamI=",
+      "Sz.BlazorRerenderReducers.dll": "sha256-JRnROa144GfkCTcGiT6XfgEvWgV0l4+60Ultfn4Ksz4="
     },
     "extensions": null,
     "lazyAssembly": null,
