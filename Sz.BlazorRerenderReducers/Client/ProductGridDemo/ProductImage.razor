@@ -2,9 +2,4 @@
 @code {
     [Parameter, EditorRequired]
     public ProductViewModel Product { get; set; } = null!;
-
-    // write a console line on every render
-    protected override void OnAfterRender(bool _) =>
-        Console.WriteLine($"Rendered {GetType().Name}");
-
 }

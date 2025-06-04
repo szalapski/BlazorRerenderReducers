@@ -33,8 +33,5 @@
 
     private void Add() => Products.Insert(0, new());
 
-    // write a console line on every render
-    protected override void OnAfterRender(bool _) =>
-        Console.WriteLine($"Rendered {GetType().Name}");
 
 }

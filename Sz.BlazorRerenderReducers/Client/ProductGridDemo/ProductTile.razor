@@ -39,8 +39,4 @@
         AvoidUnnecessaryRerenders
             ? $"{Product.Code};{Product.Price};{Product.IsInStock}"
             : base.GetDisplayHash();
-
-    // write a console line on every render
-    protected override void OnAfterRender(bool _) =>
-        Console.WriteLine($"Rendered {GetType().Name}");
 }

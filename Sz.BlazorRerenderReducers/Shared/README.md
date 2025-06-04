@@ -11,6 +11,15 @@ Suppose that you have a component that is being rerendered undesirably often.  F
     ```c#
     @inherit DisplayHashRerenderComponentBase
     ```
+   
+   If any such component already has an override for OnAfterRender, ensure it calls the method it is overriding on the base, as one might for any overridden method:
+    ```c#
+    protected override void OnAfterRender(bool firstRender)
+    {
+        base.OnAfterRender(firstRender); 
+        // ...any other calls you might have
+    }
+    ```
 
 2. Override the abstract method `GetDisplayHash` to return a string that represents *all* the displayed state of the component. That is, it should return a different value when any displayable state changes, and the same value when no visible change happens.
 
@@ -26,7 +35,7 @@ Suppose that you have a component that is being rerendered undesirably often.  F
         protected override string[]? GetDisplayItems() => new [] { InputFoo.Bar, InputFoo.Qux }
     }
     ```
-
+ 
 Now your component should be rerendered only when the value of GetDisplayHash changes.  To see such rerendering logged, you might choose to override AfterRender on your component. 
 
 Note that child components will not rerender if the current component doesn't rerender, as the current component will not set any parameters on its children unless it rerenders.
