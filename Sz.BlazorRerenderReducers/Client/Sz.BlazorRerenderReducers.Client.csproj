@@ -1,27 +1,27 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk.BlazorWebAssembly">
 
-  <PropertyGroup Label="Configuration" Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
-    <TypeScriptTarget>ES6</TypeScriptTarget>
-  </PropertyGroup>
+	<PropertyGroup Label="Configuration" Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+		<TypeScriptTarget>ES6</TypeScriptTarget>
+	</PropertyGroup>
 
-  <PropertyGroup Label="Configuration" Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
-    <TypeScriptTarget>ES6</TypeScriptTarget>
-  </PropertyGroup>
+	<PropertyGroup Label="Configuration" Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+		<TypeScriptTarget>ES6</TypeScriptTarget>
+	</PropertyGroup>
 
-  <PropertyGroup>
-    <TargetFramework>net6.0</TargetFramework>
-    <Nullable>enable</Nullable>
-  </PropertyGroup>
+	<PropertyGroup>
+		<TargetFramework>net6.0</TargetFramework>
+		<Nullable>enable</Nullable>
+	</PropertyGroup>
 
-  <ItemGroup>
-    <PackageReference Include="Blazor-State" Version="4.0.1" />
-    <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly" Version="6.0.3" />
-    <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly.DevServer" Version="6.0.3" PrivateAssets="all" />
-    <PackageReference Include="System.Net.Http.Json" Version="6.0.0" />
-  </ItemGroup>
+	<ItemGroup>
+		<PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly" Version="6.0.36" />
+		<PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly.DevServer" Version="6.0.36" PrivateAssets="all" />
+		<PackageReference Include="System.Net.Http.Json" Version="6.0.2" />
+	</ItemGroup>
 
-  <ItemGroup>
-    <ProjectReference Include="..\Shared\Sz.BlazorRerenderReducers.csproj" />
-  </ItemGroup>
-
+	<ItemGroup>
+		<ProjectReference Include="..\Shared\Sz.BlazorRerenderReducers.csproj" />
+	</ItemGroup>
 </Project>
+
+
